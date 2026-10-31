@@ -22,11 +22,10 @@
       }
     }
   }
-
-  /* .status-indicator::after {
+}
+/* .status-indicator::after {
     content: "아쎄이!";
   } */
-}
 
 /* 2-1. GNB 네비게이션 */
 .mq-gnb {
