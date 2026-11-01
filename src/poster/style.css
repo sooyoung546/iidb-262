@@ -452,6 +452,17 @@ body {
   }
 }
 
+.artists-list li {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.artists-list li:hover {
+  color: #8ff5d5;
+  transform: translateX(-15px);
+}
+
 /* ========================================
    11. 하단 메타 정보
 ======================================== */
@@ -519,11 +530,19 @@ body {
   }
 }
 
-/* 모바일 정보 창 */
+/* ========================================
+   모바일 메뉴
+======================================== */
+
+/* 기본적으로 메뉴창 숨기기 */
 #festival-info {
   display: none;
+}
 
-  @media (width <= 23.4375rem) {
+/* 375px 이하 모바일 화면 */
+@media (width <= 23.4375rem) {
+  #festival-info {
+    display: block;
     position: absolute;
     top: 5rem;
     left: 5%;
@@ -531,37 +550,45 @@ body {
 
     padding: 1.5rem;
     background-color: #8ff5d5;
-
     z-index: 15;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s;
   }
-}
 
-/* 메뉴가 열렸을 때 */
-#festival-info.is-open {
-  display: block;
-}
+  #festival-info.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 
-/* 모바일 메뉴 설명 */
-#festival-info .festival-desc {
-  display: block;
-  margin: 0;
-  font-size: 1.2rem;
-}
+  #festival-info .festival-desc {
+    display: block;
+    margin: 0;
+    font-size: 1.2rem;
+  }
 
-/* 설명 문단 간격 */
-#festival-info .festival-desc p:first-child {
-  margin-bottom: 1rem;
-}
+  #festival-info .festival-desc p:first-child {
+    margin-bottom: 1rem;
+  }
 
-/* 모바일 출연진 */
-#festival-info .artists-list {
-  display: block;
-  margin: 1.5rem 0 0;
-  padding: 0;
-
-  font-size: 1.2rem;
-  text-align: left;
-  list-style: none;
+  #festival-info .artists-list {
+    display: block;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    font-size: 1.2rem;
+    text-align: left;
+    list-style: none;
+  }
 }
 
 /* ========================================
